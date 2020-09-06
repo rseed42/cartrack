@@ -40,5 +40,7 @@ class CarLocationServer(TCPServer):
                 data = await stream.read_bytes(BUF_SIZE)
                 print(f'Received data: {data}')
                 # await stream.write(data)
-            except StreamClosedError:
+            except StreamClosedError as err:
+                print(f'--- Error ---')
+                print(err)
                 break
