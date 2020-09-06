@@ -6,7 +6,7 @@
     "disable_existing_loggers": false,
     "formatters": {
       "standard": {
-        "format": "%(asctime)s %(levelname)s: %(message)s"
+        "format": "%(asctime)s: %(message)s"
       }
     },
     "handlers": {
@@ -19,15 +19,20 @@
       "file": {
         "class": "logging.handlers.RotatingFileHandler",
         "formatter": "standard",
-        "filename": "car.log",
-        "maxBytes": 1024,
-        "backupCount": 3
+        "filename": "logs/data.log",
+        "maxBytes": 104857600,
+        "backupCount": 1000
       }
     },
     "loggers": {
       "": {
-        "handlers": ["console", "file"],
-        "level": "DEBUG",
+        "handlers": ["file"],
+        "level": "INFO",
+        "propagate": false
+      },
+      "__main__": {
+        "handlers": ["console"],
+        "level": "INFO",
         "propagate": false
       }
     }

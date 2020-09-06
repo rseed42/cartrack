@@ -10,5 +10,5 @@ class CarLocationServer(TCPServer):
                 data = await stream.read_until(b'#')
                 logging.info(data)
             except StreamClosedError as err:
-                logging.error(err)
+                logging.debug(err)
                 break
