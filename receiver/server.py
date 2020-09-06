@@ -36,8 +36,8 @@ class CarLocationServer(TCPServer):
     async def handle_stream(self, stream, address):
         while True:
             try:
-                # data = await stream.read_until(b"\n")
-                data = await stream.read_bytes(BUF_SIZE)
+                data = await stream.read_until(b'#')
+                # data = await stream.read_bytes(BUF_SIZE)
                 print(f'Received data: {data}')
                 # await stream.write(data)
             except StreamClosedError as err:
