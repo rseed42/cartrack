@@ -8,7 +8,7 @@ class CarLocationServer(TCPServer):
         while True:
             try:
                 data = await stream.read_until(b'#')
-                logging.debug(data)
+                logging.info(data)
             except StreamClosedError as err:
                 logging.error(err)
                 break
