@@ -3,7 +3,7 @@
 # import time
 # HOST = '0.0.0.0'
 # PORT = 9000
-# BUF_SIZE = 98
+BUF_SIZE = 98
 #
 # def listen():
 #   # print 'Starting to listen'
@@ -36,7 +36,8 @@ class CarLocationServer(TCPServer):
     async def handle_stream(self, stream, address):
         while True:
             try:
-                data = await stream.read_until(b"\n")
+                # data = await stream.read_until(b"\n")
+                data = await stream.read_bytes(BUF_SIZE)
                 print(f'Received data: {data}')
                 # await stream.write(data)
             except StreamClosedError:
