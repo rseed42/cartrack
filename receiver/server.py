@@ -30,13 +30,14 @@
 
 from tornado.tcpserver import TCPServer
 from tornado.iostream import StreamClosedError
-from tornado import gen
 
-class EchoServer(TCPServer):
+
+class CarLocationServer(TCPServer):
     async def handle_stream(self, stream, address):
         while True:
             try:
                 data = await stream.read_until(b"\n")
-                await stream.write(data)
+                print(f'Received data: {data}')
+                # await stream.write(data)
             except StreamClosedError:
                 break
