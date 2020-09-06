@@ -7,5 +7,6 @@ def load_config(config_file: str) -> CarTrackerConfig:
         cfg = json.load(fp)
     return CarTrackerConfig(
         cfg['host'],
-        cfg['port']
+        cfg['port'],
+        cfg['logging']
     )

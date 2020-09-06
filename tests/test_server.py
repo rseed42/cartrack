@@ -14,4 +14,5 @@ def test_server():
 
 
 def test_cfg(config: CarTrackerConfig):
-    assert config == CarTrackerConfig('0.0.0.0', 9000)
+    assert config.host == '0.0.0.0'
+    assert config.port == 9000

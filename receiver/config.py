@@ -5,3 +5,4 @@ from dataclasses import dataclass
 class CarTrackerConfig:
     host: str
     port: int
+    logging: dict

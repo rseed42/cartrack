@@ -1,5 +1,6 @@
 from tornado.tcpserver import TCPServer
 from tornado.iostream import StreamClosedError
+import logging
 
 
 class CarLocationServer(TCPServer):
@@ -7,8 +8,7 @@ class CarLocationServer(TCPServer):
         while True:
             try:
                 data = await stream.read_until(b'#')
-                print(f'Received data: {data}')
+                logging.debug(data)
             except StreamClosedError as err:
-                print(f'--- Error ---')
-                print(err)
+                logging.error(err)
                 break
