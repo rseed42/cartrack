@@ -16,7 +16,7 @@ def test_load_raw_data():
     path_write = Path(__file__).parent / 'data.csv'
     with path.open() as fp:
         with path_write.open('w') as fw:
-            fw.write('timestamp, lat, lon, speed, direction\n')
+            fw.write('timestamp,lat,lon,speed,direction\n')
             for line in fp.readlines():
                 cols = line.strip().split(': ')
                 if len(cols) != 2:
@@ -36,4 +36,4 @@ def test_load_raw_data():
                 lon = decimal_longitude(str_lon)
                 speed_kmh = float(speed_knots) * 1.852
                 # print(f'{timestamp} - {lat:.8f} N {lon:.8f} E {speed_kmh:.2f} km/h, {direction} az deg')
-                fw.write(f'{timestamp}, {lat:.8f}, {lon:.8f}, {speed_kmh:.4f}, {direction}\n')
+                fw.write(f'{timestamp},{lat:.8f},{lon:.8f},{speed_kmh:.4f},{direction}\n')
